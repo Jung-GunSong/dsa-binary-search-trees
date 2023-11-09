@@ -12,6 +12,7 @@ class Node {
 
   findRecursively(val) {
 
+
   }
 
   /** insertRecursively(val): Starting at the invoking node, insert a new node
@@ -54,6 +55,34 @@ class BinarySearchTree {
    * Returns the tree instance. Uses iteration. */
 
   insert(val) {
+    let newNode = new Node(val);
+
+    if(this.root === null){
+      this.root = newNode;
+      return;
+    }
+
+    let stack = [this.root];
+
+    while (stack.length){
+      let current = stack.shift();
+
+      if (current.right === null && val > current.val){
+        current.right = newNode;
+        return;
+      }else if (current.right !== null && val > current.val) {
+        stack.push(current.right);
+      }
+
+      if (current.left === null && val < current.val){
+        current.left = newNode;
+        return;
+      }else if (current.left !== null && val < current.val) {
+        stack.push(current.left);
+      }
+
+
+    }
 
   }
 

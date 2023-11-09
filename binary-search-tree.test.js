@@ -68,7 +68,7 @@ beforeEach(function () {
   largeBST = new BinarySearchTree(n50);
 });
 
-describe("insert", function () {
+describe.only("insert", function () {
   //insert to empty tree
   it("inserts a node at the root if empty tree", function () {
     emptyBST.insert(15);
